@@ -19,11 +19,8 @@ chat_filter = ["시바", "시발", "씨발","ㅅㅂ","ㅆㅂ","ㅄ","ㅂㅅ","�
 bypass_list = []
 owner = []
 
-token = "NTE5ODIyMjEzNDY2MDMwMDgx.DyAubQ.RdqZSxt0SG4iAE7Iwx5Gm_BZw_4"
-
 players = {}
 adminID = "361091925266137089"
-sichowID = "407421138122178561"
 
 @bot.event
 async def on_ready():
