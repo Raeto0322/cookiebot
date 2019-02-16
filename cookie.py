@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
 import urllib
 import bs4
+import os
 
 bot = commands.Bot(command_prefix= ')')
 client = discord.Client()
@@ -273,8 +274,6 @@ async def 추방_error(ctx, error):
 
 @bot.command(pass_context = True)
 async def 차단(ctx, userName: discord.User):
-    if message.author.id == sichowID:
-        await bot.say("그것을 실행하기에는 너님은 너무 하찮습니다. ㅋ")
     if ctx.message.author.server_permissions.administrator:
         await bot.ban(userName)
         await bot.say(":white_check_mark: {}님 을(를) 차단(ban)했습니다.".format(userName))
@@ -408,5 +407,5 @@ async def 채팅삭제(ctx, number):
     else:
         NoPermissionEmbed = discord.Embed(title=":warning: 권한 부족")
         await bot.say(embed=NoPermissionEmbed)
-
-bot.run(token)
+access_token = os.environ['BOT_TOKEN']
+bot.run(access_token)
