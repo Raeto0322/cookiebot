@@ -168,8 +168,8 @@ async def 봇정보(ctx):
     HelpEmbed.add_field(name="개발자", value="ReMac720_Studio", inline=True)
     HelpEmbed.add_field(name="개발 언어 및 API", value="Python 3.6.7\nDiscord.py", inline=True)
     HelpEmbed.add_field(name="봇 버전", value="beta 1.0", inline=True)
-    HelpEmbed.add_field(name="서포트", value="(미공개)", inline=True)
-    HelpEmbed.add_field(name="팀", value="(미정)", inline=True)
+    HelpEmbed.add_field(name="서포트", value="[ https://discord.gg/aVpWuAx ]", inline=True)
+    HelpEmbed.add_field(name="팀", value="팀 멜론", inline=True)
     await bot.say(embed=HelpEmbed)
 
 @bot.command(pass_context=True)
