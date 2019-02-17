@@ -147,16 +147,18 @@ async def on_message(message):
             await bot.send_message(message.channel, "봇 제작자만 사용할수 있는 커맨드입니다!")
     await bot.process_commands(message)
 
-@bot.command(pass_context=True)
-async def 도움말(ctx):
-    CmdListEmbed = discord.Embed(title="Commands List | 명령어 목록",color=0x999999)
-    CmdListEmbed.add_field(name="연산", value="`)덧셈 [첫번째 정수] [두번째 정수]` \n`)뺄셈 [첫번째 정수] [두번째 정수]`\n`)곱셈 [첫번째 정수] [두번째 정수]` \n`)나눗셈 [첫번째 정수] [두번째 정수]`")
-    CmdListEmbed.add_field(name="인터넷", value="`)날씨 [지역]`\n`)미세먼지 [지역]`\n`)실검순위`")
-    CmdListEmbed.add_field(name="관리 (관리자 권한)", value="`)경고 [유저] [사유]`\n`)추방 [유저]`\n`)차단 [유저]`\n`)채팅삭제 [갯수]`")
-    CmdListEmbed.add_field(name="정보", value="`)봇정보`\n`)정보 [유저]`")
-    CmdListEmbed.add_field(name="재미", value="`)주사위`\n`)소라고둥 [질문]`\n`)복권`")
-
-    await bot.say(embed=CmdListEmbed)
+@bot.event()
+async def on_message(message):
+	if message.content.startswith(')도움말'):
+		await bot.send_message(channel,'D:speech_left: Direct Message로 ~~디스코드에 가장 유능한 사무라이를 통하여~~ 전송되였습니다.')
+		member = discord.utils.get(client.get_all_members(),id=message.author.id)
+		CmdListEmbed = discord.Embed(title="Commands List | 명령어 목록",color=0x999999)
+		CmdListEmbed.add_field(name="연산", value="`)덧셈 [첫번째 정수] [두번째 정수]` \n`)뺄셈 [첫번째 정수] [두번째 정수]`\n`)곱셈 [첫번째 정수] [두번째 정수]` \n`)나눗셈 [첫번째 정수] [두번째 정수]`")
+		CmdListEmbed.add_field(name="인터넷", value="`)날씨 [지역]`\n`)미세먼지 [지역]`\n`)실검순위`")
+		CmdListEmbed.add_field(name="관리 (관리자 권한)", value="`)경고 [유저] [사유]`\n`)추방 [유저]`\n`)차단 [유저]`\n`)채팅삭제 [갯수]`")
+		CmdListEmbed.add_field(name="정보", value="`)봇정보`\n`)정보 [유저]`")
+		CmdListEmbed.add_field(name="재미", value="`)주사위`\n`)소라고둥 [질문]`\n`)복권`")
+		await bot.send_message(member,embed=CmdListEmbed)
 
 @bot.command(pass_context=True)
 async def 봇정보(ctx):
