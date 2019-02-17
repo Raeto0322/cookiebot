@@ -159,7 +159,8 @@ async def on_message(message):
 		CmdListEmbed.add_field(name="정보", value="`)봇정보`\n`)정보 [유저]`")
 		CmdListEmbed.add_field(name="재미", value="`)주사위`\n`)소라고둥 [질문]`\n`)복권`")
 		await bot.send_message(member,embed=CmdListEmbed)
-
+		
+	await bot.process_commands(message)
 @bot.command(pass_context=True)
 async def 봇정보(ctx):
     HelpEmbed = discord.Embed(title="Info | 봇 정보",color=0x999999)
